@@ -23,11 +23,6 @@
             "Larabay\\": "src/"
         }
     },
-    "autoload-dev": {
-        "files": [
-            "test/helpers.php"
-        ]
-    },
     "scripts": {
         "test": "vendor/bin/phpunit --bootstrap vendor/autoload.php test"
     },
