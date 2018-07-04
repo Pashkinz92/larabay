@@ -5,7 +5,7 @@ namespace Larabay;
 use Illuminate\Support\ServiceProvider;
 use GuzzleHttp\Client as GuzzleClient;
 use Larabay\Contracts\QueriesPixabay;
-use Larabay\LarabayService;
+use Larabay\Support\LarabayService;
 
 class LarabayServiceProvider extends ServiceProvider
 {

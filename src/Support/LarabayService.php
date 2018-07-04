@@ -99,7 +99,11 @@ final class LarabayService implements QueriesPixabay
 
         $queryString = $requestOptions
             ->filter(function ($value, $key) {
-                return filled($value);
+                if (function_exists('filled')) {
+                    return filled($value);
+                } else {
+                    return !empty($value) && trim($value) !='';
+                }
             })
             ->map(function ($option, $key) {
                 return "$key=$option";
