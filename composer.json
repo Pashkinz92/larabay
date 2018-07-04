@@ -1,10 +1,9 @@
 {
-    "name": "jonpemby/larabay",
+    "name": "pashkinz92/larabay",
     "description": "Pixabay API for Laravel",
     "type": "library",
     "require": {
-        "illuminate/support": "^5.6",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0",
