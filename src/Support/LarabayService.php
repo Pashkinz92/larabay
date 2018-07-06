@@ -23,6 +23,9 @@ final class LarabayService implements QueriesPixabay
      */
     protected $options = [];
 
+    protected $totalItems = 0;
+    protected $items = [];
+
     /**
      * Create a new Larabay service.
      *
@@ -52,8 +55,9 @@ final class LarabayService implements QueriesPixabay
         $response = $this->client->send($this->buildRequest($url, $terms, $options));
 
         $body = collect(json_decode($response->getBody()->getContents()));
-
-        return collect($body->get('hits'));
+        $this->totalItems = $body->get('total');
+        $this->items = collect($body->get('hits'));
+        return $this->items;
     }
 
     /**
@@ -159,5 +163,15 @@ final class LarabayService implements QueriesPixabay
         }
 
         throw new PixabayQueryException;
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function getTotalItems()
+    {
+        return $this->totalItems;
     }
 }
